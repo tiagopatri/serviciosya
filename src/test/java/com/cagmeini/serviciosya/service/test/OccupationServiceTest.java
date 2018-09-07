@@ -4,6 +4,8 @@ package com.cagmeini.serviciosya.service.test;
 
 import java.util.List;
 
+import com.cagmeini.serviciosya.dao.IOccupationDao;
+import com.cagmeini.serviciosya.dao.OccupationDaoMemory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,10 +18,14 @@ public class OccupationServiceTest {
 
     private OccupationService occupationService = new OccupationService ();
 
+    private IOccupationDao occupationDao = new OccupationDaoMemory ();
+
 
     @Test
     public void testFindAllOccupations () {
 
+
+        this.occupationService.setOccupationDao (this.occupationDao);
 
         List<Occupation> list = this.occupationService.findAllOccupations ();
 

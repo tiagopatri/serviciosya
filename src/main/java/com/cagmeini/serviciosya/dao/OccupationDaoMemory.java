@@ -9,13 +9,13 @@ import static org.apache.commons.lang3.RandomStringUtils.*;
 import com.cagmeini.serviciosya.beans.domain.Occupation;
 
 
-public class OccupationDao {
+public class OccupationDaoMemory implements IOccupationDao {
 
 
     private Map<String, Occupation> occupations;
 
 
-    public OccupationDao () {
+    public OccupationDaoMemory() {
 
         super ();
 
