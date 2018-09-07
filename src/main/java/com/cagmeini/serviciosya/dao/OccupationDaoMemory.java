@@ -35,7 +35,7 @@ public class OccupationDaoMemory implements IOccupationDao {
         this.occupations.put (o2.getId (), o2);
     }
 
-
+    @Override
     public List<Occupation> findAllOccupations () {
 
         // Get the entries.
@@ -50,5 +50,11 @@ public class OccupationDaoMemory implements IOccupationDao {
 
         // Return the occupations.
         return list;
+    }
+
+    @Override
+    public void add (Occupation occupation) {
+
+        this.occupations.put (occupation.getId (), occupation);
     }
 }

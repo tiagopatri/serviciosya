@@ -31,4 +31,21 @@ public class OccupationServiceTest {
 
         Assert.assertFalse (list.isEmpty ());
     }
+
+    @Test
+    public void testAddOccupation () {
+
+
+        this.occupationService.setOccupationDao (this.occupationDao);
+
+        Occupation o = new Occupation ("1", "Catador de Ron", "Beber alcohol...");
+
+        List<Occupation> init = this.occupationDao.findAllOccupations ();
+
+        this.occupationService.addOccupation (o);
+
+        List<Occupation> end = this.occupationDao.findAllOccupations ();
+
+        Assert.assertTrue (init.size()+1 == end.size());
+    }
 }

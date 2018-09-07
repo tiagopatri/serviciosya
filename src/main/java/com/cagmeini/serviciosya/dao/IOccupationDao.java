@@ -11,4 +11,6 @@ public interface IOccupationDao {
 
 
     List<Occupation> findAllOccupations ();
+
+    void add (Occupation occupation);
 }

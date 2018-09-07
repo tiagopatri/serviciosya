@@ -10,4 +10,9 @@ public class OccupationJdbcDao implements IOccupationDao {
   public List<Occupation> findAllOccupations() {
     return null;
   }
+
+  @Override
+  public void add(Occupation occupation) {
+
+  }
 }

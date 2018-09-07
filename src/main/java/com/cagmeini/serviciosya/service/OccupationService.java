@@ -35,4 +35,9 @@ public class OccupationService {
 
         return this.occupationDao.findAllOccupations ();
     }
+
+    public void addOccupation (Occupation occupation) {
+
+        this.occupationDao.add (occupation);
+    }
 }
