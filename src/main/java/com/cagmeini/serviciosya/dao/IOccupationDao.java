@@ -13,4 +13,6 @@ public interface IOccupationDao {
     List<Occupation> findAllOccupations ();
 
     void add (Occupation occupation);
+    
+    Occupation searchById(String id);
 }
