@@ -2,6 +2,7 @@
 package com.cagmeini.serviciosya.dao;
 
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 import static org.apache.commons.lang3.RandomStringUtils.*;
@@ -54,7 +55,35 @@ public class OccupationDaoMemory implements IOccupationDao {
 
     @Override
     public void add (Occupation occupation) {
-
         this.occupations.put (occupation.getId (), occupation);
+    }
+
+    @Override
+    public Occupation searchById(String id){
+        Occupation ocu ;
+
+        try {
+            ocu = this.occupations.get(id);
+            return ocu;
+        } catch (NullPointerException npe){
+            System.out.println("The key have no value mapped");
+            return null;
+        }
+    }
+
+    @Override
+    public void delete(String id){
+        Occupation ocu = this.occupations.remove(id);
+//        System.out.println("Delete() >> " + ocu);
+
+        if(ocu==null) throw new NullPointerException() ;
+//        else System.out.println("Succesfully removed " + ocu);
+    }
+
+    @Override
+    public void update (String id, Occupation ocu){
+        this.delete( id );
+        ocu.setId(id);
+        this.add( ocu );
     }
 }
