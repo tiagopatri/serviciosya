@@ -48,4 +48,34 @@ public class OccupationServiceTest {
 
         Assert.assertTrue (init.size()+1 == end.size());
     }
+
+    @Test
+    public void testSearchOccupation(){
+        this.occupationService.setOccupationDao(this.occupationDao);
+
+        Occupation o = new Occupation("50", "Tester", "Testear apps");
+        this.occupationService.addOccupation(o);
+
+        Occupation found = this.occupationService.searchOccupation("50");
+        Occupation notFound = this.occupationService.searchOccupation("idInexistente123TiraNull");
+
+        Assert.assertTrue(found.getName().equals(o.getName()));
+        Assert.assertFalse(notFound instanceof Occupation);
+    }
+
+    @Test
+    public void testDeleteOccupation(){
+        this.occupationService.setOccupationDao(this.occupationDao);
+
+        Occupation o = new Occupation("60", "Name", "Description");
+        occupationService.addOccupation(o);
+
+        List<Occupation> list1 = this.occupationService.findAllOccupations();
+
+        this.occupationService.deleteOccupation("60");
+        List<Occupation> list2 = this.occupationService.findAllOccupations();
+
+        Assert.assertTrue( list1.size() == list2.size()+1 );
+    }
+
 }

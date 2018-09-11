@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.cagmeini.serviciosya.beans.domain.Occupation;
 import com.cagmeini.serviciosya.dao.IOccupationDao;
+import sun.plugin.util.PluginConsoleController;
 
 
 public class OccupationService {
@@ -40,4 +41,18 @@ public class OccupationService {
 
         this.occupationDao.add (occupation);
     }
+
+    public Occupation searchOccupation (String id){
+        return this.occupationDao.searchById(id);
+    }
+
+    public void deleteOccupation (String id){
+        this.occupationDao.delete(id);
+    }
+
+    public void updateOccupation (String id, Occupation ocu){
+        this.occupationDao.update(id, ocu);
+    }
+
+
 }

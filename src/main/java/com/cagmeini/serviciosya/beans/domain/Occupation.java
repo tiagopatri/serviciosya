@@ -123,4 +123,11 @@ public class Occupation {
 
         this.description = description;
     }
+
+    @Override
+    public String toString(){
+        return  "ID: " + this.id +
+                "\tNAME: " + this.name +
+                "\tDESCRIPTION: " + this.description ;
+    }
 }
