@@ -1,10 +1,10 @@
 
-package com.cagmeini.serviciosya.dao;
+package com.capgemeini.serviciosya.dao;
 
 
 import java.util.List;
 
-import com.cagmeini.serviciosya.beans.domain.Occupation;
+import com.capgemeini.serviciosya.beans.domain.Occupation;
 
 
 public interface IOccupationDao {

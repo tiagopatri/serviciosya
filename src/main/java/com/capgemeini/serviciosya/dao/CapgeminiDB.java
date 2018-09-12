@@ -1,18 +1,23 @@
-package com.cagmeini.serviciosya.dao;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+package com.capgemeini.serviciosya.dao;
+
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class CapgeminiDB {
+import org.apache.commons.dbcp2.BasicDataSource;
 
 
-    private static final BasicDataSource dataSource = new BasicDataSource ();
+public final class CapgeminiDB {
+
+
+    private static final BasicDataSource dataSource;
 
 
     static {
+
+        dataSource = new BasicDataSource ();
 
         try {
 
@@ -24,18 +29,24 @@ public class CapgeminiDB {
             dataSource.setUrl(pop.getProperty ("jdbc.url"));
             dataSource.setUsername (pop.getProperty ("jdbc.user"));
             dataSource.setPassword (pop.getProperty ("jdbc.pw"));
-            dataSource.setMinIdle (5);
-            dataSource.setMaxIdle (10);
+            dataSource.setDriverClassName(pop.getProperty ("jdbc.driver"));
+            dataSource.setMinIdle (Integer.parseInt (pop.getProperty ("jdbc.pool.min")));
+            dataSource.setMaxIdle (Integer.parseInt (pop.getProperty ("jdbc.pool.max")));
 
         } catch (Exception e) {
 
             throw new DaoException(e);
         }
-
     }
 
 
-    public static final Connection getConnection () throws SQLException {
+    private CapgeminiDB () {
+
+        super ();
+    }
+
+
+    protected static Connection getConnection () throws SQLException {
 
         return dataSource.getConnection();
     }
