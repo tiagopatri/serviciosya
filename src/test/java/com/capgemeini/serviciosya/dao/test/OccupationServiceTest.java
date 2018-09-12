@@ -31,12 +31,12 @@ public class OccupationServiceTest {
 
             logger.debug ("Inserting new occupation.");
             Occupation c = new Occupation ();
-            c.setName ("Encantador de suegras.");
-            c.setDescription ("Amo el peligro");
-            dao.add (c);
+            c.setName ("Rum Tester.");
+            c.setDescription ("xxxx");
+            dao.create (c);
 
            logger.debug ("Checking test result.");
-           List<Occupation> list = dao.findAllOccupations ();
+           List<Occupation> list = dao.findAll ();
 
            boolean r = Boolean.FALSE;
 

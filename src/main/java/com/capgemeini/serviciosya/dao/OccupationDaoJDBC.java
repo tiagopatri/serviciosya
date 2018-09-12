@@ -24,7 +24,7 @@ public class OccupationDaoJDBC implements IOccupationDao {
 
 
     @Override
-    public List<Occupation> findAllOccupations () {
+    public List<Occupation> findAll () {
 
 
         // Occupations list.
@@ -70,7 +70,7 @@ public class OccupationDaoJDBC implements IOccupationDao {
     }
 
     @Override
-    public void add (Occupation occupation) {
+    public void create (Occupation occupation) {
 
         try {
 
@@ -108,5 +108,20 @@ public class OccupationDaoJDBC implements IOccupationDao {
             logger.error ("Failure inserting new occupation!");
             throw new DaoException (e.getMessage (), e);
         }
+    }
+
+    @Override
+    public void update(Occupation target) {
+
+    }
+
+    @Override
+    public void delete(Integer id) {
+
+    }
+
+    @Override
+    public Occupation findById(Integer id) {
+        return null;
     }
 }
