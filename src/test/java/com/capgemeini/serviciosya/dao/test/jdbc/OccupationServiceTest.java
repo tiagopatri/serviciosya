@@ -1,5 +1,5 @@
 
-package com.capgemeini.serviciosya.dao.test;
+package com.capgemeini.serviciosya.dao.test.jdbc;
 
 
 import org.apache.log4j.Logger;
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.capgemeini.serviciosya.beans.domain.Occupation;
 import com.capgemeini.serviciosya.dao.IOccupationDao;
-import com.capgemeini.serviciosya.dao.OccupationDaoJDBC;
+import com.capgemeini.serviciosya.dao.jdbc.OccupationDaoJDBC;
 
 import java.util.List;
 

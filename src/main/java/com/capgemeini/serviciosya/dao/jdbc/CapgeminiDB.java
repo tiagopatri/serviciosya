@@ -1,11 +1,12 @@
 
-package com.capgemeini.serviciosya.dao;
+package com.capgemeini.serviciosya.dao.jdbc;
 
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.capgemeini.serviciosya.dao.DaoException;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 
